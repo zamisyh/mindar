@@ -3,7 +3,7 @@ function checkWebRTC(){
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         console.log('WebRTC is supported')
     }else{
-        console.log('WebRTC is not supported')
+       alert('WebRTC is not supported')
     }
 }
 
@@ -15,6 +15,6 @@ function checkWebGL(){
     if (gl && gl instanceof WebGLRenderingContext) {
         console.log('WebGL is Supported')
     }else{
-        console.log('WebGL is not supported')
+        alert('WebGL is not supported')
     }
 }
