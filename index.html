@@ -7,7 +7,7 @@
   </head>
   <body>
     <a-scene 
-        mindar-image="imageTargetSrc: http://127.0.0.1:5500/mindar/sakura.mind" 
+        mindar-image="imageTargetSrc: https://zamisyh.github.io/mindar/sakura.mind" 
         color-space="sRGB" 
         renderer="colorManagement: true, physicallyCorrectLights" 
         vr-mode-ui="enabled: false" 
@@ -18,7 +18,7 @@
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
-      <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0" orbit-controls="minDistance: 2; maxDistance: 180;  rotateSpeed: 0.5">
+      <a-entity id="mytarget" mytarget mindar-image-target="targetIndex: 0" orbit-controls="target: 0 2 0; minDistance: 2; maxDistance: 180; initialPosition: 0 3 5; rotateSpeed: 0.5">
         <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel" animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
       </a-entity>
     </a-scene>
