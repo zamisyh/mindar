@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+
+    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script>
+      if (!window.WebGLRenderingContext) {
+        alert(
+          "Your browser does not support WebGL. Please use a more modern browser."
+        );
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/webvr-polyfill@0.10.0/dist/webvr-polyfill.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/webxr-polyfill@0.10.0/dist/webxr-polyfill.min.js"></script>
+    <script>
+      if (!("IntersectionObserver" in window)) {
+        alert("This browser does not support AR features.");
+      }
+    </script>
+  
+    <style>
+      body {
+        font-family: "Speedee Condensed" !important;
+      }
+      .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: #fff;
+        font-weight: bold;
+        margin-top: 16px;
+        line-height: 30px;
+        font-family: "Speedee Condensed" !important;
+      }
+      .loader {
+        width: 30px;
+        padding: 4px;
+        aspect-ratio: 1;
+        border-radius: 100%;
+        background: #fdbb20;
+        --_m: conic-gradient(#0000 10%, #000),
+          linear-gradient(#000 0 0) content-box;
+        -webkit-mask: var(--_m);
+        mask: var(--_m);
+        -webkit-mask-composite: source-out;
+        mask-composite: subtract;
+        animation: l3 1s infinite linear;
+      }
+      @keyframes l3 {
+        to {
+          transform: rotate(1turn);
+        }
+      }
+
+      @font-face {
+        font-family: "Speedee Condensed";
+        src: url("iframe/fonts/SpeedeeCondensed-Bold.eot");
+        src: url("iframe/fonts/SpeedeeCondensed-Bold.eot?#iefix")
+            format("embedded-opentype"),
+          url("iframe/fonts/SpeedeeCondensed-Bold.woff2") format("woff2"),
+          url("iframe/fonts/SpeedeeCondensed-Bold.woff") format("woff"),
+          url("iframe/fonts/SpeedeeCondensed-Bold.ttf") format("truetype"),
+          url("iframe/fonts/SpeedeeCondensed-Bold.svg#SpeedeeCondensed-Bold")
+            format("svg");
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </head>
+
+  <body style="margin: 0px; overflow: hidden">
+    <!-- minimal loader shown until image descriptors are loaded. Loading may take a while according to the device computational power -->
+    <div class="arjs-loader">
+      <img src="iframe/assets/logo.svg" alt="" />
+      <div>Memuat <br />Tunggu Sebentar</div>
+      <div class="loader"></div>
+    </div>
+
+    <!-- a-frame scene -->
+    <a-scene
+      vr-mode-ui="enabled: false;"
+      renderer="logarithmicDepthBuffer: true;"
+      embedded
+      arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
+    >
+      <a-nft
+        type="nft"
+        url="iframe/assets/poster-square-1"
+        smooth="false"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+        id="marker-1"
+      >
+        <!-- <a-box id="square-1" scale="200 200 200" position="0 0 0" color="white"> -->
+      </a-nft>
+
+      <a-nft
+        type="nft"
+        url="iframe/assets/poster-square-2"
+        smooth="false"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+        id="marker-2"
+      >
+        <!-- <a-box  id="square-2" scale="200 200 200" position="0 0 0" color="red"> -->
+      </a-nft>
+
+      <a-nft
+        type="nft"
+        url="iframe/assets/poster-square-3"
+        smooth="false"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+        id="marker-3"
+      >
+        <!-- <a-box  id="square-3" scale="200 200 200" position="50 100 0" color="yellow"> -->
+      </a-nft>
+
+      <a-nft
+        type="nft"
+        url="iframe/assets/poster-square-4"
+        smooth="false"
+        smoothCount="10"
+        id="marker-4"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+      >
+        <!-- <a-box  id="square-4" scale="200 200 200" position="50 100 0" color="black"> -->
+      </a-nft>
+
+      <a-nft
+        type="nft"
+        url="iframe/assets/poster-square-5"
+        smooth="false"
+        smoothCount="10"
+        smoothTolerance=".01"
+        smoothThreshold="5"
+        id="marker-5"
+      >
+        <!-- <a-box id="square-5" scale="200 200 200" position="50 100 0" color="purple"> -->
+      </a-nft>
+
+      <!-- static camera that moves according to the device movements -->
+      <a-entity camera></a-entity>
+    </a-scene>
+    <footer
+      id="footer"
+      style="
+        font-family: 'Speedee Condensed' !important;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+      "
+    >
+      Arahkan kamera handphone ke poster
+    </footer>
+
+    <script>
+      // Function to handle marker found event
+      function onMarkerLost(event) {
+        document.getElementById(
+          "footer"
+        ).innerText = `Arahkan kamera handphone ke poster`;
+      }
+
+      function onMarkerFound(event) {
+        const markerId = event.target.id;
+        console.log(`Marker found: ${markerId}`);
+        if (markerId == "marker-1") {
+          document.getElementById(
+            "footer"
+          ).innerText = `MARTHA CHRISTINA TIAHAHU`;
+        } else if (markerId == "marker-2") {
+          document.getElementById("footer").innerText = `KIRAS BANGUN`;
+        } else if (markerId == "marker-3") {
+          document.getElementById("footer").innerText = `PANGERAN ANTASARI`;
+        } else if (markerId == "marker-4") {
+          document.getElementById(
+            "footer"
+          ).innerText = `SRI SUSUHUNAN PAKUBUWONO X`;
+        } else if (markerId == "marker-5") {
+          document.getElementById("footer").innerText = `RATU KALINYAMAT`;
+        }
+        window.parent.postMessage(
+          { action: "markerId", markerId: markerId },
+          "*"
+        );
+        // footer.innerText = `Marker found: ${markerId}`;
+        // You can add additional logic here, like showing a message or changing the object's appearance
+      }
+
+      // Get all NFT elements and add event listeners
+      const nftMarkers = document.querySelectorAll("a-nft");
+      nftMarkers.forEach((nft) => {
+        nft.addEventListener("markerFound", onMarkerFound);
+        nft.addEventListener("markerLost", onMarkerLost);
+      });
+    </script>
+  </body>
+</html>
