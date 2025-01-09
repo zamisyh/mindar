@@ -2,86 +2,94 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <title>Mizora NFT</title>
     <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/webvr-polyfill@0.10.0/dist/webvr-polyfill.min.js"></script>
-    <style>
-      .arjs-loader {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: 9999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .arjs-loader div {
-        text-align: center;
-        font-size: 1.25em;
-        color: white;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <body style="margin : 0px; overflow: hidden;">
-        <div class="arjs-loader">
-          <div>Loading, please wait...</div>
-        </div>
-      
-        <a-scene
-          vr-mode-ui="enabled: false;"
-          renderer="logarithmicDepthBuffer: true;"
-          embedded
-          arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-        >
-         
-          <a-nft
-            type="nft"
-            url="https://zamisyh.github.io/mindar/barcode"
-            smooth="true"
-            smoothCount="10"
-            smoothTolerance=".01"
-            smoothThreshold="5"
-            id="sakura"
-          >
-        
-          </a-nft>
-          <a-entity camera></a-entity>
-        </a-scene>
+    <div class="arjs-loader">
+      <div>Loading <br /> Environment</div>
+      <div class="loader"></div>
+    </div>
 
+    <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;">
+      <a-nft type="nft" url="https://zamisyh.github.io/mindar/barcode" smooth="true" smoothCount="10" smoothTolerance=".01" smoothThreshold="5" id="sakura"></a-nft>
+      <a-entity camera></a-entity>
+    </a-scene>
 
-        <script>
-            if (!("IntersectionObserver" in window)) {
-                alert("This browser does not support AR features.");
-            }
+    <div id="example-scanning-overlay">
+      <div class="inner">
+        <div class="scanline"></div>
+      </div>
+    </div>
 
-            if (!window.WebGLRenderingContext) {
-                alert(
-                  "Your browser does not support WebGL. Please use a more modern browser."
-                );
-              }
-            
-            console.log('scanning')
-            function onMarkerFound(event){
-                const markerId = event.target.id
-                console(`Marker found: ${markerId}`);
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h2 id="nft-name"></h2>
+        <p>Product Found. Wait for the auto-redirect.</p>
+        <p class="auto-redirect-timer" id="auto-redirect-timer">
+          Redirecting in 5 seconds...
+        </p>
+      </div>
+    </div>
 
-                if(markerId == 'sakura'){
-                   window.location.href="https://3dd.mizora.jewelry/rings?model=sakura"
-                }
-            }
+    <script>
+      if (!"IntersectionObserver" in window) {
+        alert("This browser does not support AR features.");
+      }
 
+      if (!window.WebGLRenderingContext) {
+        alert("Your browser does not support WebGL. Please use a more modern browser.");
+      }
 
-            const nftMarkers = document.querySelectorAll("a-nft");
-            nftMarkers.forEach((nft) => {
-                nft.addEventListener("markerFound", onMarkerFound);
-            });
-        </script>
+      function showModal(markerId) {
+        const modal = document.getElementById("modal");
+        const nftName = document.getElementById("nft-name");
+        const redirectButton = document.getElementById("redirect-button");
+        const autoRedirectTimer = document.getElementById("auto-redirect-timer");
+
+        nftName.innerText = markerId.toUpperCase();
+        modal.style.display = "flex";
+
+        let countdown = 5;
+        const countdownInterval = setInterval(() => {
+          countdown--;
+          autoRedirectTimer.innerText = `Redirecting in ${countdown} seconds...`;
+          if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            window.location.href = `https://3dd.mizora.jewelry/rings?model=${markerId}`;
+          }
+        }, 1000);
+
+        redirectButton.addEventListener("click", () => {
+          clearInterval(countdownInterval);
+          window.location.href = `https://3dd.mizora.jewelry/rings?model=${markerId}`;
+        });
+      }
+
+      function onMarkerFound(event) {
+        const markerId = event.target.id;
+        console.log(`Marker found: ${markerId}`);
+
+        if (markerId === "sakura") {
+          showModal(markerId);
+        }
+
+      }
+
+      function onMarkerLost(event) {
+        console.log("Marker lost");
+
+      }
+
+      const nftMarkers = document.querySelectorAll("a-nft");
+      nftMarkers.forEach((nft) => {
+        nft.addEventListener("markerFound", onMarkerFound);
+        nft.addEventListener("onMarkerLost", onMarkerLost);
+      });
+    </script>
   </body>
 </html>
