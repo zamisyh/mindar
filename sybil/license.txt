@@ -1,0 +1,8 @@
+Model Information:
+* title:	Sybil (Pseudoregalia)
+* source:	https://sketchfab.com/3d-models/sybil-pseudoregalia-15845d84548041c9bafda79f981a9182
+* author:	Cornf_Blue (https://sketchfab.com/Cornf_Blue)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
