@@ -1,0 +1,15 @@
+[
+    {
+      "nftUrl": "https://zamisyh.github.io/mindar/nft/sakura/sakura",
+      "gltfModel": "https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb",
+      "scale": "5 5 5",
+      "position": "50 100 0"
+    },
+    {
+      "nftUrl": "https://zamisyh.github.io/mindar/nft/twila/twila",
+      "gltfModel": "https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb",
+      "scale": "5 5 5",
+      "position": "50 60 0"
+    }
+  ]
+  

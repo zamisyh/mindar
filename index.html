@@ -2,63 +2,20 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=no"
-    />
-    <title>Mizora NFT</title>
-    <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/webvr-polyfill@0.10.0/dist/webvr-polyfill.min.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choose Your AR Mode</title>
+    <link rel="stylesheet" href="nft/style.css">
+    <link rel="stylesheet" href="global.css">
   </head>
   <body>
-    <div class="arjs-loader">
-      <div>
-        Initializing <br />
-        Scene
-        <span id="dots">.</span>
-      </div>
-      <div class="loader"></div>
-      <!-- <div class="percent" id="progress-percent">0%</div> -->
-    </div>
-
-    <a-scene
-      vr-mode-ui="enabled: false;"
-      renderer="logarithmicDepthBuffer: true;"
-      embedded
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
-    >
-      <a-entity camera></a-entity>
-    </a-scene>
-
-    <div id="example-scanning-overlay">
-      <div class="inner">
-        <div class="scanline"></div>
-      </div>
-    </div>
-
-    <div class="modal" id="modal">
+    <div class="initial-modal" id="initial-modal">
       <div class="modal-content">
-        <h2 id="nft-name"></h2>
-        <p>Product Found. Wait for the auto-redirect.</p>
-        <p class="auto-redirect-timer" id="auto-redirect-timer">
-          Redirecting in 5 seconds...
-        </p>
+        <h2>Choose View Mode</h2>
+        <p>Please select the mode you want to try.</p>
+        <a href="ar" tabindex="0">AR Mode</a>
+        <a href="nft" tabindex="0">3D Mode</a>
       </div>
     </div>
-
-    <script src="scripts.js"></script>
-    <script>
-      let dotCount = 1;
-      const dotElement = document.getElementById("dots");
-
-      function updateLoadingText() {
-        dotCount = (dotCount % 5) + 1; 
-        dotElement.textContent = ".".repeat(dotCount);
-      }
-
-      setInterval(updateLoadingText, 500); 
-    </script>
   </body>
 </html>
+
