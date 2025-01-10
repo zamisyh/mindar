@@ -1,0 +1,19 @@
+{
+    "categories": {
+      "rings": [
+        {
+          "name": "sakura",
+          "nft": "nft/sakura/sakuraqrpln",
+          "redirectUrl": "https://3dd.mizora.jewelry/rings?model=sakura"
+        },
+        {
+          "name": "twila",
+          "nft": "nft/twila/twilaqrpln",
+          "redirectUrl": "https://3dd.mizora.jewelry/rings?model=twila"
+        }
+      ],
+      "earrings": [],
+      "bracelet": []
+    }
+  }
+  
