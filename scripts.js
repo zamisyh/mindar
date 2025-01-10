@@ -30,11 +30,22 @@ if (!window.WebGLRenderingContext) {
   );
 }
 
+function updateLoadingProgress(percent) {
+  const percentElement = document.querySelector(".percent");
+  if (percentElement) {
+    percentElement.textContent = `${percent}%`;
+  } else {
+    console.error("Element with class 'percent' not found");
+  }
+}
+
 function loadAllNFTMarkers() {
   fetch("data.json")
     .then((response) => response.json())
     .then((data) => {
       const scene = document.querySelector("a-scene");
+      const totalMarkers = Object.values(data.categories).flat().length;
+      let loadedMarkers = 0;
 
       Object.keys(data.categories).forEach((category) => {
         const nftMarkers = data.categories[category];
@@ -53,6 +64,10 @@ function loadAllNFTMarkers() {
             onMarkerFound(event, item.redirectUrl)
           );
           nftElement.addEventListener("markerLost", onMarkerLost);
+
+          nftElement.addEventListener("model-progress", () => {
+            document.querySelector(".arjs-loader").style.display = "none";
+          });
 
           scene.appendChild(nftElement);
         });

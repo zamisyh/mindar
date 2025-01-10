@@ -15,10 +15,12 @@
   <body>
     <div class="arjs-loader">
       <div>
-        Loading <br />
-        Environment
+        Initializing <br />
+        Scene
+        <span id="dots">.</span>
       </div>
       <div class="loader"></div>
+      <!-- <div class="percent">0%</div> -->
     </div>
 
     <a-scene
@@ -47,5 +49,16 @@
     </div>
 
     <script src="scripts.js"></script>
+    <script>
+      let dotCount = 1;
+      const dotElement = document.getElementById("dots");
+
+      function updateLoadingText() {
+        dotCount = (dotCount % 5) + 1; 
+        dotElement.textContent = ".".repeat(dotCount);
+      }
+
+      setInterval(updateLoadingText, 500); 
+    </script>
   </body>
 </html>
