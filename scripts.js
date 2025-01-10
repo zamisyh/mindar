@@ -53,7 +53,7 @@ function loadAllNFTMarkers() {
         nftMarkers.forEach((item) => {
           const nftElement = document.createElement("a-nft");
           nftElement.setAttribute("type", "nft");
-          nftElement.setAttribute("url", `${item.nft}`);
+          nftElement.setAttribute("url", `https://zamisyh.github.io/mindar/${item.nft}`);
           nftElement.setAttribute("smooth", "true");
           nftElement.setAttribute("smoothCount", "10");
           nftElement.setAttribute("smoothTolerance", ".01");
