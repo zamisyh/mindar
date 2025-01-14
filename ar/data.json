@@ -1,13 +1,13 @@
 [
     {
-      "nftUrl": "https://zamisyh.github.io/mindar/nft/sakura/sakura",
-      "gltfModel": "http://localhost:5500/ar/sybil/scene.gltf",
+      "nftUrl": "nft/sakura/sakura",
+      "gltfModel": "ar/sybil/scene.gltf",
       "scale": "100 100 100",
       "position": "50 0 0"
     },
     {
-      "nftUrl": "https://zamisyh.github.io/mindar/nft/twila/twila",
-      "gltfModel": "http://localhost:5500/ar/1.glb",
+      "nftUrl": "nft/twila/twila",
+      "gltfModel": "ar/1.glb",
       "scale": "5000 5000 5000",
       "position": "50 0 0"
     }
