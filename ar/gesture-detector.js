@@ -25,7 +25,7 @@ AFRAME.registerComponent("gesture-detector", {
   
       this.targetElement.addEventListener("touchmove", this.emitGestureEvent);
     },
-  
+
     remove: function() {
       this.targetElement.removeEventListener("touchstart", this.emitGestureEvent);
   
