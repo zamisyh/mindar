@@ -4,15 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Mizora NFT</title>
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <!-- CDN -->
+    <script src="./assets/aframe-v1.3.0.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/webvr-polyfill@0.10.0/dist/webvr-polyfill.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-    <script src="./gesture-detector.js"></script>
-    <script src="./gesture-handler.js"></script>
-    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Lib -->
+    <script src="./lib/gesture-detector.js"></script>
+    <script src="./lib/gesture-handler.js"></script>
+    <script src="./lib/RGBELoader.js"></script>
+    <script src="./lib/aframe-env-map.js"></script>
+    <script src="./lib/aframe-hdr-environment.js"></script>
+    <script src="./assets/aframefunc.js"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="../global.css" />
   </head>
   <body>
@@ -38,17 +48,25 @@
     </a>
 
     <a-scene
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
+      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix;"
       embedded
-      renderer="logarithmicDepthBuffer: true; antialias: true; colorManagement: true;  sortObjects: true;  physicallyCorrectLights: true;"
+      renderer="logarithmicDepthBuffer: true; antialias: true; colorManagement: true;  sortObjects: true; physicallyCorrectLights: true;"
       vr-mode-ui="enabled: false"
       gesture-detector
+      hdr-environment="url: assets/studio.hdr; showGround: true; groundSize: 15"
       id="scene"
-    >
+    > 
+      <x-assets>
+        <img id="diamondNRM" src="./assets/diamond.jpg"/>
+      </x-assets>
+
+      <a-light type="hemisphere" intensity="0.9" position="0 2 0"></a-light>
+
+      
       <a-entity camera></a-entity>
     </a-scene>
 
-    <script src="scripts.js"></script>
+    <script src="assets/scripts.js"></script>
     <script>
       let dotCount = 1;
       const dotElement = document.getElementById("dots");
@@ -64,7 +82,7 @@
           e.preventDefault();
         }
       });
-      
+  
       //document.addEventListener('contextmenu', (event) => {
         //event.preventDefault();
       //});
