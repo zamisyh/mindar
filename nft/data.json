@@ -3,12 +3,12 @@
       "rings": [
         {
           "name": "sakura",
-          "nft": "iframe/nft/sakura/sakura",
+          "nft": "https://store.mizora.jewelry/iframe/nft/sakura/sakura",
           "redirectUrl": "https://3dd.mizora.jewelry/rings?model=sakura"
         },
         {
           "name": "twila",
-          "nft": "iframe/nft/twila/twila",
+          "nft": "https://store.mizora.jewelry/iframe/nft/twila/twila",
           "redirectUrl": "https://3dd.mizora.jewelry/rings?model=twila"
         }
       ],
