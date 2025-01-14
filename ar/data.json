@@ -1,13 +1,13 @@
 [
     {
       "nftUrl": "https://zamisyh.github.io/mindar/nft/sakura/sakura",
-      "gltfModel": "/iframe/ar/models/2.glb",
+      "gltfModel": "https://zamisyh.github.io/mindar/ar/models/2.glb",
       "scale": "100 100 100",
       "position": "50 0 0"
     },
     {
       "nftUrl": "https://zamisyh.github.io/mindar/nft/twila/twila",
-      "gltfModel": "/iframe/ar/models/2.glb",
+      "gltfModel": "https://zamisyh.github.io/mindar/ar/models/2.glb",
       "scale": "5000 5000 5000",
       "position": "100 100 0"
     }
