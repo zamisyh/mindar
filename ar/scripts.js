@@ -62,16 +62,26 @@ function createNFTElement(item) {
   entity.setAttribute("scale", item.scale || "1 1 1"); 
   entity.setAttribute("position", item.position || "0 0 0");
   entity.setAttribute("class", "clickable");
+  entity.setAttribute("animation-mixer");
   entity.setAttribute("gesture-handler", "minScale: 0.25; maxScale: 10");
 
   nft.appendChild(entity);
 
-  nft.addEventListener("markerFound", (event) => {
-    console.log(`${event.target.url} marker found!`);
+  nft.addEventListener("markerFound", () => {
+    console.log(`${item.gltfModel} marker found!`);
+    const overlay = document.getElementById('example-scanning-overlay');
+    overlay.classList.add('hidden'); 
+  });
+
+  nft.addEventListener("markerLost", () => {
+    console.log(`${item.gltfModel} marker lost!`);
+    const overlay = document.getElementById('example-scanning-overlay');
+    overlay.classList.remove('hidden');
   });
 
   scene.appendChild(nft);
 }
+
 
 function initialize() {
   console.log("Initializing application...");

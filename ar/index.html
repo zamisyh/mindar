@@ -8,6 +8,10 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/webvr-polyfill@0.10.0/dist/webvr-polyfill.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
+    <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
+    <script src="./gesture-detector.js"></script>
+    <script src="./gesture-handler.js"></script>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="../global.css" />
   </head>
@@ -36,7 +40,7 @@
     <a-scene
       arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;"
       embedded
-      renderer="logarithmicDepthBuffer: true;"
+      renderer="logarithmicDepthBuffer: true; antialias: true; colorManagement: true;  sortObjects: true;  physicallyCorrectLights: true;"
       vr-mode-ui="enabled: false"
       gesture-detector
       id="scene"
@@ -45,5 +49,25 @@
     </a-scene>
 
     <script src="scripts.js"></script>
+    <script>
+      let dotCount = 1;
+      const dotElement = document.getElementById("dots");
+
+      function updateLoadingText() {
+        dotCount = (dotCount % 5) + 1;
+        dotElement.textContent = ".".repeat(dotCount);
+      }
+
+      setInterval(updateLoadingText, 500);
+      document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) {
+          e.preventDefault();
+        }
+      });
+      
+      //document.addEventListener('contextmenu', (event) => {
+        //event.preventDefault();
+      //});
+    </script>
   </body>
 </html>
