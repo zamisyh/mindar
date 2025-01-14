@@ -63,7 +63,6 @@ function createNFTElement(item) {
   entity.setAttribute("position", item.position || "0 0 0");
   entity.setAttribute("class", "clickable");
   entity.setAttribute("gesture-handler", "minScale: 0.25; maxScale: 10");
-  entity.setAttribute("material", "color: #FFFFFF; src: #diamondNRM; normal-map: #diamondNRM")
   // entity.setAttribute("model-opacity", "9")
 
   nft.appendChild(entity);
