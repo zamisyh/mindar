@@ -1,15 +1,14 @@
 [
-    {
-      "nftUrl": "https://zamisyh.github.io/mindar/nft/twila/twila",
-      "gltfModel": "models/sakura.glb",
-      "scale": "7000 7000 7000",
-      "position": "0 50 -150"
-    },
-    {
-      "nftUrl": "https://zamisyh.github.io/mindar/nft/twila/twila",
-      "gltfModel": "models/twila.glb",
-      "scale": "7000 7000 7000",
-      "position": "0 50 -150"
-    }
-  ]
-  
+  {
+    "nftUrl": "https://zamisyh.github.io/mindar/nft/sakura/sakura",
+    "gltfModel": "https://zamisyh.github.io/mindar/ar/models/sakura.glb",
+    "scale": "7000 7000 7000",
+    "position": "0 50 -150"
+  },
+  {
+    "nftUrl": "https://zamisyh.github.io/mindar/nft/twila/twila",
+    "gltfModel": "https://zamisyh.github.io/mindar/ar/models/twila.glb",
+    "scale": "7000 7000 7000",
+    "position": "0 50 -150"
+  }
+]
