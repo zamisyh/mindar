@@ -10,24 +10,20 @@
 
     <!-- CDN -->
     <script src="../ar/assets/aframe-v1.3.0.js"></script>
-    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script> -->
   </head>
   <body>
-    <a-scene>
-        <!-- Add a light to illuminate the model -->
+    <a-scene gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.7/;">
         <a-light type="directional" position="0 5 5" intensity="1"></a-light>
         
-        <!-- Add a ground for reference -->
-  
         <!-- Load the .glb model -->
-        <a-entity
-          gltf-model="https://zamisyh.github.io/mindar/ar/models/zahara.glb"
-          position="0 0 0"
-          scale="1 1 1"
-        ></a-entity>
+      <a-entity gltf-model="../ar/models/twila.glb" 
+        position="0 0 0" 
+        rotation="" 
+        scale="5000 5000 5000">
+      </a-entity>
   
-        <!-- Add a camera -->
-        <a-camera position="0 1.6 5"></a-camera>
+       
+        <a-camera  position="0 150 180" fov="50"></a-camera>
       </a-scene>
   </body>
 </html>
