@@ -1,13 +1,13 @@
 [
     {
-      "nftUrl": "../iframe/nft/sakura/sakura",
-      "gltfModel": "iframe/models/sakura.glb",
+      "nftUrl": "nft/sakura/sakura",
+      "gltfModel": "models/sakura.glb",
       "scale": "7000 7000 7000",
       "position": "0 50 -150"
     },
     {
-      "nftUrl": "../iframe/nft/twila/twila",
-      "gltfModel": "iframe/models/twila.glb",
+      "nftUrl": "nft/twila/twila",
+      "gltfModel": "models/twila.glb",
       "scale": "7000 7000 7000",
       "position": "0 50 -150"
     }
