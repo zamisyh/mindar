@@ -18,6 +18,16 @@ function checkWebRTC() {
   }
 }
 
+function base_url() {
+  var pathparts = location.pathname.split('/');
+  if (location.host == 'localhost') {
+      var url = location.origin+'/'+pathparts[1].trim('/')+'/'; 
+  }else{
+      var url = location.origin;
+  }
+  return url;
+}
+
 function checkARSupport() {
   if (!"IntersectionObserver" in window) {
     alert("This browser does not support AR features.");
@@ -29,7 +39,7 @@ function checkARSupport() {
 }
 
 function loadAllNFTMarkers() {
-  fetch("data.json")
+  fetch(`${base_url()}/ar/data.json`)
     .then((response) => {
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -62,6 +72,7 @@ function createNFTElement(item) {
   entity.setAttribute("scale", item.scale || "1 1 1"); 
   entity.setAttribute("position", item.position || "0 0 0");
   entity.setAttribute("class", "clickable");
+  entity.setAttribute("animation-mixer");
   entity.setAttribute("gesture-handler", "minScale: 0.25; maxScale: 10");
   // entity.setAttribute("model-opacity", "9")
 
