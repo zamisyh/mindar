@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
     <title>Mizora NFT</title>
 
     <!-- CDN -->
@@ -12,7 +15,7 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/c-frame/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-    
+
     <!-- Lib -->
     <script src="./lib/gesture-detector.js"></script>
     <script src="./lib/gesture-handler.js"></script>
@@ -42,36 +45,60 @@
     </div>
 
     <a href="../" class="back-button" aria-label="Back">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8" />
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-arrow-left"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"
+        />
       </svg>
     </a>
-    
-    <a href="#" class="refresh-button" aria-label="Refresh" onclick="window.location.reload();">
-      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
-        <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
-        <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+
+    <a
+      href="#"
+      class="refresh-button"
+      aria-label="Refresh"
+      onclick="window.location.reload();"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-arrow-clockwise"
+        viewBox="0 0 16 16"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"
+        />
+        <path
+          d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"
+        />
       </svg>
     </a>
 
     <a-scene
-      arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix;"
+      arjs="trackingMethod: best; sourceType: webcam; detectionMode: mono_and_matrix; maxDetectionRate: 60; filterMinCF: 0.9; debugUIEnabled: false;"
       embedded
-      renderer="logarithmicDepthBuffer: true; antialias: true; colorManagement: true;  sortObjects: true; physicallyCorrectLights: true;"
+      renderer="logarithmicDepthBuffer: true; antialias: true; colorManagement: true; sortObjects: true; physicallyCorrectLights: true;"
       vr-mode-ui="enabled: false"
       gesture-detector
       hdr-environment="url: https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/brown_photostudio_02_1k.hdr; showGround: true; groundSize: 15"
       id="scene"
       gltf-model="dracoDecoderPath: https://www.gstatic.com/draco/versioned/decoders/1.5.7/;"
-    > 
-    <a-light type="hemisphere" intensity="0.9" position="0 2 0"></a-light>
+    >
+      <a-light type="hemisphere" intensity="0.9" position="0 2 0"></a-light>
 
-
-      <a-entity camera></a-entity>
+      <a-entity camera="fov: 60;" scale="1 1 1"></a-entity>
     </a-scene>
 
-
-    
     <script src="assets/scripts.js"></script>
     <script>
       let dotCount = 1;
@@ -83,17 +110,18 @@
       }
 
       setInterval(updateLoadingText, 500);
-      document.addEventListener('keydown', function(e) {
-        if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 'i' || e.key === 'I')) {
+      document.addEventListener("keydown", function (e) {
+        if (
+          e.ctrlKey &&
+          (e.key === "u" || e.key === "U" || e.key === "i" || e.key === "I")
+        ) {
           e.preventDefault();
         }
       });
-  
+
       //document.addEventListener('contextmenu', (event) => {
-        //event.preventDefault();
+      //event.preventDefault();
       //});
     </script>
-
-
   </body>
 </html>
