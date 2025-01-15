@@ -1,12 +1,12 @@
 [
     {
-      "nftUrl": "../nft/sakura/sakura",
+      "nftUrl": "https://store.mizora.jewelry/iframe/nft/sakura/sakura",
       "gltfModel": "models/sakura.glb",
       "scale": "7000 7000 7000",
       "position": "0 50 -150"
     },
     {
-      "nftUrl": "../nft/twila/twila",
+      "nftUrl": "https://store.mizora.jewelry/iframe/nft/twila/twila",
       "gltfModel": "models/twila.glb",
       "scale": "7000 7000 7000",
       "position": "0 50 -150"
